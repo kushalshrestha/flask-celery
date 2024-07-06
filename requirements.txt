@@ -3,3 +3,5 @@ celery
 flower
 redis
 werkzeug
+aioodbc
+flask-restful

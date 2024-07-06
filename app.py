@@ -2,9 +2,16 @@ import celery.states as states
 from flask import Flask, Response
 from flask import url_for, jsonify
 from worker import celery
+from flask_restful import Api
+from resources.start_task import StartTask
+from resources.task_status import TaskStatus
+
+
 
 app = Flask(__name__)
-
+api = Api(app)
+api.add_resource(StartTask, '/start-task', methods=['GET'])
+api.add_resource(TaskStatus, '/task-status/<string:task_id>', methods=['GET'])
 
 @app.route('/add/<int:param1>/<int:param2>')
 def add(param1: int, param2: int) -> str:
@@ -32,6 +39,10 @@ def check_task(task_id: str) -> str:
 def home() -> Response:
     return jsonify("Welcome!!")
 
+############
+
+
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)

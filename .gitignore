@@ -1,0 +1,16 @@
+venv/
+
+*.pyc
+
+__pycache__/
+
+.env
+
+.vscode/
+.idea/
+
+*.log
+
+*~
+
+celerybeat-schedule
