@@ -5,3 +5,4 @@ redis
 werkzeug
 aioodbc
 flask-restful
+watchdog

@@ -70,3 +70,10 @@ brew services start redis
 # testing redis
 redis-cli ping  # should return PONG
 ```
+
+### PID and Killing Process
+```bash
+lsof -i tcp:<PORT_NUMBER>
+
+kill -15 <PID>
+```
